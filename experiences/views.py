@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from experiences.models import exp
 
 def HomeView(request):
-    return render(request, 'experiences/home.html')
+    exps = exp.objects.all()
+    context = {
+        'exps' : exps
+    }
+    return render(request, 'experiences/home.html', context)
