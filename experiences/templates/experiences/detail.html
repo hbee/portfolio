@@ -51,41 +51,14 @@
   <section class="py-5 text-center container">
     <img class="row py-lg-5">
       <img class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Bendi Hamza</h1>
-        <p class="lead text-muted">Aspiring software engineer looking to put his skills to good use !</p>
+        <h1 class="fw-light">{{exp.title}}</h1>
+        <p class="lead text-muted">{{exp.summary}}</p>
+      <img src="{{ exp.image.url }}" height=200></img>
         <p>
-          <a href="mailto:hamzabendi@gmail.com" class="btn btn-primary my-2">Email me !</a>
-          <a href="https://www.linkedin.com/in/hamza-bendi/" class="btn btn-secondary my-2">Contact me on LinkedIn</a>
-          <a href="https://www.github.com/hbee" class="btn btn-secondary my-2">Check out my GitHub</a>
+          <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>
           <br>
-          <img src="{% static 'profile pic.jpg' %}" height=200></img>
         </p>
-      </div>
-    </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for exp in exps %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <a href="{% url 'detail' exp.id %}">
-            <img src="{{exp.image.url}}">
-            <div class="card-body">
-              <p class="card-text">{{exp.title}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">...</small>
-              </div>
-            </div>
-            </a>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
 
 </main>
 

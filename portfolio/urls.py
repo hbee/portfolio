@@ -18,7 +18,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from experiences.views import HomeView, DetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('experiences.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', HomeView, name='home'),
+    path('experiences/<int:exp_id>', DetailView, name='detail'),
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
